@@ -1,6 +1,6 @@
 # Dairy Product Supply Chain Management on IBM Blockchain Platform
 
-# Proposed Model Infrastructure Setup for Dairy Supply Chain Management
+# Working of Model
 
 ## IBM Cloud's Blockchain Platform
 The proposed model will be built on IBM Cloud's blockchain platform, a managed solution that provides a secure and scalable environment for running Hyperledger Fabric networks. The platform includes several features specifically suited for supply chain management:
