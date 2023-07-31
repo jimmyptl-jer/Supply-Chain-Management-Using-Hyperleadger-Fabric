@@ -116,6 +116,111 @@ Step 11: Stop the Network
 ./network.sh down
 ```
 
+Example of a smart contract for a dairy supply chain management project using Hyperledger Fabric's chaincode. In this example, we'll create a smart contract to manage dairy products moving through the supply chain. The contract will allow the creation, updating, and reading of dairy products, and it will also record the history of each product's movement.
+
+```javascript
+const { Contract } = require('fabric-contract-api');
+
+class DairySupplyChainContract extends Contract {
+  async initLedger(ctx) {
+    // Initialize the ledger with sample dairy products (optional)
+    const dairyProducts = [
+      {
+        id: 'product1',
+        name: 'Milk',
+        manufacturer: 'Dairy Farm Ltd',
+        productionDate: '2023-06-01',
+        expiryDate: '2023-06-15',
+        currentLocation: 'Warehouse A',
+        owner: 'Tom',
+        history: [],
+      },
+      {
+        id: 'product2',
+        name: 'Cheese',
+        manufacturer: 'CheeseCo Inc',
+        productionDate: '2023-05-20',
+        expiryDate: '2023-12-31',
+        currentLocation: 'Warehouse B',
+        owner: 'Jerry',
+        history: [],
+      },
+      // Add more sample dairy products if needed
+    ];
+
+    for (const product of dairyProducts) {
+      await ctx.stub.putState(product.id, Buffer.from(JSON.stringify(product)));
+      console.log('Dairy product added to ledger:', product);
+    }
+  }
+
+  async createDairyProduct(ctx, id, name, manufacturer, productionDate, expiryDate, location, owner) {
+    // Create a new dairy product on the ledger
+    const newProduct = {
+      id,
+      name,
+      manufacturer,
+      productionDate,
+      expiryDate,
+      currentLocation: location,
+      owner,
+      history: [],
+    };
+
+    await ctx.stub.putState(id, Buffer.from(JSON.stringify(newProduct)));
+    console.log('New dairy product created:', newProduct);
+
+    return JSON.stringify(newProduct);
+  }
+
+  async updateProductLocation(ctx, id, newLocation) {
+    // Update the location of a dairy product on the ledger
+    const productBytes = await ctx.stub.getState(id);
+
+    if (!productBytes || productBytes.length === 0) {
+      throw new Error(`Dairy product ${id} not found`);
+    }
+
+    const product = JSON.parse(productBytes.toString());
+    product.currentLocation = newLocation;
+    product.history.push({ location: newLocation, timestamp: new Date().toISOString() });
+
+    await ctx.stub.putState(id, Buffer.from(JSON.stringify(product)));
+    console.log('Dairy product location updated:', product);
+
+    return JSON.stringify(product);
+  }
+
+  async readDairyProduct(ctx, id) {
+    // Read a dairy product from the ledger
+    const productBytes = await ctx.stub.getState(id);
+
+    if (!productBytes || productBytes.length === 0) {
+      throw new Error(`Dairy product ${id} not found`);
+    }
+
+    return productBytes.toString();
+  }
+
+  async getDairyProductHistory(ctx, id) {
+    // Get the history of a dairy product from the ledger
+    const productBytes = await ctx.stub.getState(id);
+
+    if (!productBytes || productBytes.length === 0) {
+      throw new Error(`Dairy product ${id} not found`);
+    }
+
+    const product = JSON.parse(productBytes.toString());
+    return JSON.stringify(product.history);
+  }
+}
+
+module.exports = DairySupplyChainContract;
+```
+
+In this smart contract, we added fields such as `name`, `manufacturer`, `productionDate`, `expiryDate`, and `owner` specific to dairy products. 
+
+Once you deploy this smart contract and interact with it using the Node.js application, it will allow you to manage dairy products and record their movement history in the supply chain.
 
 **After deploying your network and smart contracts, the next steps typically involve interacting with the network through client applications. These applications can be developed using various programming languages such as Node.js, Java, Go, etc. For this example, we'll provide a simple guide using Node.js as the programming language.**
 
