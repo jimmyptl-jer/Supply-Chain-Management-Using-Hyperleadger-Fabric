@@ -3,13 +3,20 @@
 ## Infrastructure Setup
 
 The infrastructure setup for the proposed model will be as follows:
-• IBM Cloud's blockchain platform: The IBM Blockchain Platform is a managed blockchain platform that provides a scalable and secure environment for running Hyperledger Fabric networks. The platform includes a variety of features that make it well-suited for supply chain management, such as:
+• IBM Cloud's blockchain platform: The IBM Blockchain Platform is a managed blockchain platform that provides a scalable and secure environment for running Hyperledger Fabric networks. 
+
+The platform includes a variety of features that make it well-suited for supply chain management, such as:
+
   o High availability: The platform is designed to be highly available, with multiple nodes and replication to ensure that the network is always up and running.
   o Reliability: The platform is designed to be reliable, with features such as automatic failover to ensure that the network remains operational even if one or more nodes fail.
   o Scalability: The platform is designed to be scalable, so that it can be easily scaled up or down to meet the needs of the supply chain.
+
 • Multiple peer nodes: The network will be configured with multiple peer nodes to ensure that the network is highly available and reliable. The peer nodes will be distributed across different regions to ensure that the network is not susceptible to regional outages.
+
 • An ordering service: The ordering service will be used to order the transactions in the blockchain network. The ordering service will be a trusted third party that is responsible for ensuring that the transactions are ordered in a consistent manner.
+
 • A certificate authority (CA): The CA will be used to issue certificates to the participants in the blockchain network. The certificates will be used to authenticate the participants and to encrypt the data that is stored on the blockchain network.
+
 • IBM Cloud's infrastructure: IBM Cloud's infrastructure will be used to host the blockchain network. IBM Cloud's infrastructure is highly secure and reliable, and it provides a scalable and cost-effective solution for hosting blockchain networks.
 
 The infrastructure setup for the proposed model will ensure that the network is highly available, reliable, scalable, and secure. This will allow the network to be used to track the movement of dairy products throughout the supply chain in a secure and transparent manner.
@@ -17,24 +24,35 @@ The infrastructure setup for the proposed model will ensure that the network is 
 ## Smart Contracts
 
 • Smart contracts will be developed using Chaincode (Hyperledger Fabric's implementation) to enforce the business logic and rules of the supply chain. These smart contracts will be designed to capture relevant data points and events, enabling data analytics and insights throughout the supply chain process. Functions within the smart contracts will ensure secure data access, privacy, and compliance with regulatory requirements.
+
 - Smart contracts can automate many of the manual processes in the supply chain, which can help to improve efficiency and reduce costs.
 
 Step 1: Define Smart Contract Structure: The first step is to define the structure of the smart contracts. Each smart contract will correspond to a specific stage or activity in the dairy product supply chain. For example, there can be separate smart contracts for product creation, transportation, quality inspection, and transaction finalization.
 
 Step 2: Develop Smart Contract Functions: Within each smart contract, various functions will be developed to implement the business logic and rules for that specific stage. Here are some essential functions that can be included in the smart contracts:
+
 1. addProduct: This function will be called by the dairy product producer to add a new batch of dairy products to the supply chain. It will capture information such as batch ID, product type, quantity, and production date.
+
 2. updateTemperature: This function will be called by the transportation provider or IoT sensors to update the temperature readings of the dairy products during transportation. It will record the temperature readings along with the timestamp.
+
 3. updateQualityMetrics: This function will allow authorized participants, such as quality inspectors, to update quality metrics of the dairy products. It may include parameters like freshness, taste, and overall quality.
+
 4. verifyTemperatureCompliance: This function will be used to verify if the recorded temperature readings during transportation are within the acceptable range. If the temperature is outside the bounds, a penalty may be applied.
+
 5. verifyQualityCompliance: This function will check the quality metrics provided by inspectors and determine if the dairy products meet the required quality standards. Penalties may apply for subpar quality.
+
 6. completeTransaction: This function will finalize the transaction, calculate the price based on temperature and quality compliance, and transfer the payment to the respective parties.
+
 7. getTemperatureHistory: This function will allow authorized participants to access the temperature history of the dairy products, ensuring transparency and traceability.
+
 8. getQualityMetrics: This function will provide access to the quality metrics of the dairy products, allowing stakeholders to assess the product's overall quality.
 
 Step 3: Implementing Data Privacy and Access Control:
+
 Data privacy is critical in supply chain management, especially when dealing with sensitive information like temperature readings and quality metrics. The smart contracts will implement access controls to ensure that only authorized participants can access specific data elements. Encryption techniques may also be applied to protect sensitive information.
 
 Step 4: Regulatory Compliance:
+
 Smart contracts will be designed to comply with relevant regulatory requirements for supply chain management, such as food safety standards and quality control regulations. The functions within the smart contracts will enforce these compliance rules during the execution of transactions.
 
 Step 5: Testing and Deployment:
