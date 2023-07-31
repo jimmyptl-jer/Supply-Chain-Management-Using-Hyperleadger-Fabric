@@ -1,25 +1,37 @@
 # Dairy Product Supply Chain Management on IBM Blockchain Platform
 
-## Infrastructure Setup
+# Proposed Model Infrastructure Setup for Dairy Supply Chain Management
 
-The infrastructure setup for the proposed model will be as follows:
-• IBM Cloud's blockchain platform: The IBM Blockchain Platform is a managed blockchain platform that provides a scalable and secure environment for running Hyperledger Fabric networks. 
+## IBM Cloud's Blockchain Platform
+The proposed model will be built on IBM Cloud's blockchain platform, a managed solution that provides a secure and scalable environment for running Hyperledger Fabric networks. The platform includes several features specifically suited for supply chain management:
 
-The platform includes a variety of features that make it well-suited for supply chain management, such as:
+- **High Availability:** The platform ensures high availability through multiple nodes and replication, ensuring the network remains operational at all times.
+- **Reliability:** Automatic failover mechanisms are in place to maintain network operations even in the event of node failures.
+- **Scalability:** The platform is designed to scale easily to accommodate the dynamic needs of the supply chain.
 
-  o High availability: The platform is designed to be highly available, with multiple nodes and replication to ensure that the network is always up and running.
-  o Reliability: The platform is designed to be reliable, with features such as automatic failover to ensure that the network remains operational even if one or more nodes fail.
-  o Scalability: The platform is designed to be scalable, so that it can be easily scaled up or down to meet the needs of the supply chain.
+## Multiple Peer Nodes
+The network will be configured with multiple peer nodes, distributed across different regions, to ensure high availability and reliability. This distribution reduces the risk of regional outages impacting the entire network.
 
-• Multiple peer nodes: The network will be configured with multiple peer nodes to ensure that the network is highly available and reliable. The peer nodes will be distributed across different regions to ensure that the network is not susceptible to regional outages.
+## Ordering Service
+An ordering service will be employed to sequence transactions within the blockchain network. This service acts as a trusted third party to ensure consistent and reliable transaction ordering.
 
-• An ordering service: The ordering service will be used to order the transactions in the blockchain network. The ordering service will be a trusted third party that is responsible for ensuring that the transactions are ordered in a consistent manner.
+## Certificate Authority (CA)
+A Certificate Authority (CA) will be used to issue certificates to participants within the blockchain network. These certificates will be used for authentication and data encryption, enhancing the network's security.
 
-• A certificate authority (CA): The CA will be used to issue certificates to the participants in the blockchain network. The certificates will be used to authenticate the participants and to encrypt the data that is stored on the blockchain network.
+## IBM Cloud's Infrastructure
+IBM Cloud's secure and reliable infrastructure will host the entire blockchain network. This cloud-based solution provides a cost-effective and scalable environment for hosting blockchain networks.
 
-• IBM Cloud's infrastructure: IBM Cloud's infrastructure will be used to host the blockchain network. IBM Cloud's infrastructure is highly secure and reliable, and it provides a scalable and cost-effective solution for hosting blockchain networks.
+## Benefits
+The proposed infrastructure setup offers several benefits, ensuring that the network:
 
-The infrastructure setup for the proposed model will ensure that the network is highly available, reliable, scalable, and secure. This will allow the network to be used to track the movement of dairy products throughout the supply chain in a secure and transparent manner.
+- Remains highly available and operational even during failures.
+- Maintains reliability with automatic failover mechanisms.
+- Scales effortlessly to meet changing supply chain demands.
+- Ensures security through certificate-based authentication and data encryption.
+
+By leveraging IBM Cloud's blockchain platform and infrastructure, the proposed model will enable secure and transparent tracking of dairy products throughout the entire supply chain.
+
+
 
 ## Smart Contracts
 
