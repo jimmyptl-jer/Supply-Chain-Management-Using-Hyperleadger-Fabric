@@ -6,8 +6,16 @@ sudo apt-get update
 # Install Docker Engine
 sudo apt-get install -y docker.io
 
+#Install the latest version of cURL if it is not already installed.
+sudo apt-get install curl
+
 # Install Docker-Compose
 sudo apt-get install -y docker-compose
+docker --version
+docker-compose --version
+
+sudo systemctl start docker
+sudo systemctl enable docker
 
 # Install Node.js and npm
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
